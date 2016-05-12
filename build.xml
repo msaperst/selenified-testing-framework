@@ -25,20 +25,6 @@
         <javac srcdir="${src-dir}" destdir="${com-dir}" classpathref="classpath" includeantruntime="false" />
     </target>
 
-    <target name="resetDBviaSSH">
-        <sshexec host="fms.app"
-                username="vagrant"
-                keyfile="~/.ssh/id_rsa"
-                command="ll"/>
-    </target>
-
-    <target name="resetDB">
-        <exec executable="/bin/sh">
-            <arg value="-c" />
-            <arg value="ssh vagrant@fms.app 'cd Code; php artisan migrate:reset; php artisan migrate --seed'"/>
-        </exec>
-    </target>
-    
     <target name="run" depends="compile" description="Run tests in parallel">
         <java classpathref="classpath" classname="org.testng.TestNG" failonerror="true">
             <sysproperty key="browser" value="${browser}" />
