@@ -1,7 +1,7 @@
 <project name="SecureCI Testing Framework" basedir="." default="run">
     <property name="jars" value="lib" />
     <property name="rootdir" value="./" />
-    <property name="src-dir" value="./src" />
+    <property name="test-dir" value="./test" />
     <property name="out-dir" value="./test-output" />
     <property name="junit-dir" value="${out-dir}/JUnit" />
     <property name="com-dir" value="${out-dir}/classes" />
@@ -22,7 +22,7 @@
 
     <target name="compile" depends="classpath">
         <mkdir dir="${com-dir}" />
-        <javac srcdir="${src-dir}" destdir="${com-dir}" classpathref="classpath" includeantruntime="false" />
+        <javac srcdir="${test-dir}" destdir="${com-dir}" classpathref="classpath" includeantruntime="false" />
     </target>
 
     <target name="run" depends="compile" description="Run tests in parallel">
@@ -30,6 +30,8 @@
             <sysproperty key="browser" value="${browser}" />
             <sysproperty key="hubAddress" value="${hubAddress}" />
             <sysproperty key="appURL" value="${appURL}" />
+            <sysproperty key="proxyServer" value="${proxyServer}" />
+            <sysproperty key="proxyPort" value="${proxyProxy}" />
             <arg value="-d" />
             <arg value="${out-dir}" />
             <arg value="-suitename" />
