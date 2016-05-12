@@ -25,7 +25,7 @@
         <javac srcdir="${test-dir}" destdir="${com-dir}" classpathref="classpath" includeantruntime="false" />
     </target>
 
-    <target name="run" depends="compile" description="Run tests in parallel">
+    <target name="test" depends="compile" description="Run tests in parallel">
         <java classpathref="classpath" classname="org.testng.TestNG" failonerror="true">
             <sysproperty key="browser" value="${browser}" />
             <sysproperty key="hubAddress" value="${hubAddress}" />
