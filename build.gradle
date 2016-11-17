@@ -23,7 +23,7 @@ sourceSets {
 
 test{
   useTestNG{  
-    suites 'sample.xml'
+    suites "$suite"
   }
 }
 
