@@ -44,26 +44,26 @@ Additionally, each method should be prepared to catch a general exception, resul
  * a dependency (optional) - based on either another group or test, or multiples
  * a data provider (optional) - if this test takes multiple inputs, allowing the test to run multiple times
 
-The method body should start with three to four lines, in order to obtain the passed in Method and ITestContext. The below three lines should start each test, to ensure the custom test report is properly generated
+The method body should start with one or two lines, in order to obtain the passed in Method and ITestContext. The below line should start each test, to ensure the custom test report is properly generated
 
 ```java
-    String testName = getTestName( method, dataProvider );
-    TestOutput output = (TestOutput) test.getAttribute( testName + "Output" );
-    int errors = (Integer) test.getAttribute( testName + "Errors" );
+    TestOutput output = getTestOutput(method, test, dataProvider);
 ```
 
 If any Selenium commands will be run, you’ll want to pull the SeleniumHelper object as well
 
 ```java
-    SeleniumHelper selHelper = (SeleniumHelper) test.getAttribute( testName + "SelHelper" );
+    SeleniumHelper selHelper = getSelHelper(method, test, dataProvider);
 ```
+
+If you are defining your dataProvider parameters, be sure to update the varaible name of ```dataProvider``` to your variable(s) name(s)
 
 All Selenium commands to be executed can be found within the selHelper class. Functionality from clicking and typing, to hovering and changing orientation are all contained within this class. Using Eclipse will help you auto-complete desired commands, and the JavaDocs provided will outline each piece of functionality. For performing checks and verifications, the output class should be used. Functionality from confirming an alert and element are present, to checking the css and page source are all contained within this class. Tests can be build directly from combining these method calls into a test, or alternatively to create an overall stronger set of tests, a separate class or classes can be created to form workflows using these actions. Test steps can then reference calls to workflows, instead of direct actions.
 
 Finally, in order to track errors within the tests, the last step of each test is comparing the value within errors to the number 0. This will then throw an error if any issues occurred during the test. All previous errors are caught and handled, to allow the test to run to completion if possible. This last line should read as follow:
 
 ```java
-    genFun.stopTest( output, errors );
+    finalize( output );
 ```
 
 If a class has multiple tests that are similar, but simply require one or two different inputs, a dataProvider should be used. Instead of writing multiple tests, one test can be written instead. This will reduce the amount of code being written, and make updates quicker and cleaner. A full example test can be seen in the included SampleTests.java class in the framework.
