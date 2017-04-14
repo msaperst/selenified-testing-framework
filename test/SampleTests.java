@@ -48,7 +48,8 @@ public class SampleTests extends TestBase {
         TestOutput output = getTestOutput(method, test, searchTerm);
         // perform some actions
         selHelper.type(Locators.name, "q", searchTerm);
-        selHelper.submit(Locators.name, "q");
+        selHelper.click(Locators.name, "btnG");
+        selHelper.waitForElementDisplayed(Locators.id, "resultStats");
         output.compareTitle(searchTerm + " - Google Search");
         // verify no issues
         finalize(output);
