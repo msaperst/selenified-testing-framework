@@ -1,10 +1,10 @@
 # Selenified Testing Framework
 
 ## Writing Tests
-###Create A New Test Suite
+### Create A New Test Suite
 Tests should be organized into suites. To create a new test suite, simply create a folder, or nested set of folders within the src directory. Within each folder, then create one or more Java classes. Name the class something descriptive following the test suites purposes.
 
-###Structuring the Test Suite
+### Structuring the Test Suite
 Have each class extend the SeleniumTestBase class which is contained within the WebDriverWrapper.jar. Each suite can optionally contain a method setting up some details to be used in each test. The URL the selenium tests should connect to, the author of the tests, and the version of tests or software under test. See below for an example:
 
 ```java
@@ -30,7 +30,7 @@ Each suite should also contain a method to setup each test. This method will jus
 
 With this in mind, it may be helpful to structure tests based on functionality and attributes under test. If a suite has multiple tests that will be running using similar tests, consider setting up some suite specific methods to run these tests. This will reduce the amount of code being written, and make updates quicker and cleaner.
 
-###Write the Tests
+### Write the Tests
 Adding a new test, is simply adding a new method to an existing test suite (class). Each method should be named something descriptive following the tests functionality. Each method should have a public modifier and have a void return type. They should always contain the below parameters:
 
  * Object[] dataProvider
@@ -68,7 +68,7 @@ Finally, in order to track errors within the tests, the last step of each test i
 
 If a class has multiple tests that are similar, but simply require one or two different inputs, a dataProvider should be used. Instead of writing multiple tests, one test can be written instead. This will reduce the amount of code being written, and make updates quicker and cleaner. A full example test can be seen in the included SampleTests.java class in the framework.
 
-###Update testng.xml
+### Update testng.xml
 When tests are executed via Ant, the build file testng.xml dictates which tests to execute. When a new package, class or method is added to the test suite, they need to be included in the XML file if you want them to run. More details on how to update this file can be found on the ​TestNG Documentation site.
 
 ## Configuring within an IDE
