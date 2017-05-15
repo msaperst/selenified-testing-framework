@@ -4,48 +4,54 @@
   <artifactId>STF-MavenIntegration</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <dependencies>
+    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
-      <version>2.52.0</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/lib/selenium-java-2.52.0.jar</systemPath>
+      <version>2.53.1</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.jglobus/jsse -->
     <dependency>
-      <groupId>secureci-testing-framework</groupId>
-      <artifactId>ssl</artifactId>
-      <version>1.0</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/lib/com.sun.net.ssl.jar</systemPath>
+      <groupId>org.jglobus</groupId>
+      <artifactId>jsse</artifactId>
+      <version>2.1.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl -->
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <version>1.9.13</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server -->
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-server</artifactId>
+      <version>2.53.1</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>6.10</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-htmlunit-driver -->
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-htmlunit-driver</artifactId>
+      <version>2.52.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.7.23</version>
     </dependency>
     <dependency>
       <groupId>secureci-testing-framework</groupId>
       <artifactId>stf</artifactId>
-      <version>1.4.0</version>
+      <version>1.5.0</version>
       <scope>system</scope>
-      <systemPath>${project.basedir}/lib/stf-1.4.0.jar</systemPath>
-    </dependency>
-    <dependency>
-      <groupId>secureci-testing-framework</groupId>
-      <artifactId>jackson-all</artifactId>
-      <version>1.9.0</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/lib/jackson-all-1.9.0.jar</systemPath>
-    </dependency>
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-server-standalone</artifactId>
-      <version>2.52.0</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/lib/selenium-server-standalone-2.52.0.jar</systemPath>
-    </dependency>
-    <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>5.7</version>
-      <classifier>jdk15</classifier>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/lib/testng-5.7-jdk15.jar</systemPath>
+      <systemPath>${project.basedir}/lib/stf-1.5.0.jar</systemPath>
     </dependency>
   </dependencies>
   <build>
